@@ -1,0 +1,74 @@
+/* Mobile Filter Button */
+.mobile-filter-btn {
+  display: none;
+  background: #ff6a6a;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+  .mobile-filter-btn {
+    display: block;
+  }
+
+  .desktop-filter {
+    display: none;
+  }
+}
+
+/* Drawer Overlay */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 90;
+}
+
+.drawer-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Drawer */
+.filter-drawer {
+  position: fixed;
+  left: -300px;
+  top: 0;
+  width: 270px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  overflow-y: auto;
+  transition: 0.35s ease;
+  z-index: 100;
+}
+
+.filter-drawer.open {
+  left: 0;
+}
+
+/* Drawer Header */
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}

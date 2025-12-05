@@ -1,0 +1,777 @@
+/* ===== Battle Home Page Styles ===== */
+
+.battle-page {
+  min-height: 100vh;
+  background: #fafafa;
+  font-family: Inter, -apple-system, system-ui, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===== Loading State ===== */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #f0f0f0;
+  border-top: 4px solid #ff6b9d;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== Main Container ===== */
+.battle-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* ===== Battle Header ===== */
+.battle-header {
+  text-align: center;
+  padding: 48px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #fdfbff 100%);
+  margin: 0 -16px 48px -16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.battle-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff6b9d, #ffa8c5);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3); }
+  50% { box-shadow: 0 4px 25px rgba(255, 107, 157, 0.5); }
+  100% { box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3); }
+}
+
+.badge-icon {
+  font-size: 16px;
+}
+
+.battle-title {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6b9d, #ffa8c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.battle-description {
+  font-size: 20px;
+  color: #666666;
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.battle-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.battle-category,
+.battle-timer,
+.battle-participants {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.category-icon,
+.timer-icon,
+.participants-icon {
+  font-size: 18px;
+}
+
+/* ===== Battle Arena ===== */
+.battle-arena {
+  margin-bottom: 80px;
+}
+
+.battle-vs-container {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+/* ===== Battle Outfits ===== */
+.battle-outfit {
+  flex: 1;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.battle-outfit.voted {
+  transform: scale(1.02);
+}
+
+.outfit-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.outfit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #ff6b9d;
+}
+
+.battle-outfit.voted .outfit-card {
+  border-color: #ff6b9d;
+  box-shadow: 0 20px 40px rgba(255, 107, 157, 0.25);
+}
+
+.outfit-image-wrapper {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.outfit-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.outfit-card:hover .outfit-image {
+  transform: scale(1.05);
+}
+
+/* ===== Vote Overlay ===== */
+.vote-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.9), rgba(255, 168, 197, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: voteReveal 0.5s ease-out;
+}
+
+@keyframes voteReveal {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.5);
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+}
+
+.vote-icon {
+  width: 80px;
+  height: 80px;
+  color: #ffffff;
+  animation: heartBeat 1s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+.vote-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* ===== Results Overlay ===== */
+.results-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  padding: 20px;
+  text-align: center;
+}
+
+.vote-percentage {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Outfit Info ===== */
+.outfit-info {
+  padding: 24px;
+  text-align: center;
+}
+
+.outfit-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.outfit-user {
+  font-size: 16px;
+  color: #ff6b9d;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.outfit-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.vote-count {
+  font-size: 16px;
+  font-weight: 600;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===== VS Divider ===== */
+.vs-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.vs-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff6b9d, #ffa8c5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+  position: relative;
+  z-index: 3;
+  animation: vsGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes vsGlow {
+  0% { box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4); }
+  100% { box-shadow: 0 8px 35px rgba(255, 107, 157, 0.6); }
+}
+
+.vs-text {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.vs-line {
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  right: -24px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, #ff6b9d 50%, transparent 100%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* ===== Battle Actions ===== */
+.battle-actions {
+  text-align: center;
+  padding: 32px 0;
+}
+
+.vote-instruction {
+  font-size: 18px;
+  color: #666666;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===== Battle Results ===== */
+.battle-results {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  margin-top: 32px;
+}
+
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.results-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.new-battle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff6b9d, #ffa8c5);
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+.new-battle-btn:hover {
+  background: linear-gradient(135deg, #ff5a8a, #ff9bb8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+}
+
+.new-battle-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.results-bars {
+  display: flex;
+  gap: 16px;
+  height: 8px;
+}
+
+.result-bar {
+  flex: 1;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b9d, #ffa8c5);
+  transition: width 1s ease-out;
+  border-radius: 4px;
+}
+
+/* ===== Featured Battles Section ===== */
+.featured-battles {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 48px 32px;
+  margin: 0 -16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #666666;
+  margin: 0;
+  font-weight: 400;
+}
+
+.battles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featured-battle-card {
+  background: #fafafa;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.featured-battle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  border-color: #ff6b9d;
+}
+
+.battle-images {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  position: relative;
+}
+
+.battle-image-wrapper {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.battle-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.featured-battle-card:hover .battle-preview-image {
+  transform: scale(1.05);
+}
+
+.mini-vs {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff6b9d, #ffa8c5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: #ffffff;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+}
+
+.featured-battle-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.featured-battle-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.featured-battle-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.featured-votes,
+.featured-time {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 600;
+}
+
+.join-battle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: linear-gradient(135deg, #ff6b9d, #ffa8c5);
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+.join-battle-btn:hover {
+  background: linear-gradient(135deg, #ff5a8a, #ff9bb8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+}
+
+.join-battle-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .battle-container {
+    padding: 0 12px;
+  }
+  
+  .battle-header {
+    padding: 32px 0;
+    margin: 0 -12px 32px -12px;
+  }
+  
+  .battle-title {
+    font-size: 36px;
+  }
+  
+  .battle-description {
+    font-size: 18px;
+  }
+  
+  .battle-meta {
+    gap: 24px;
+  }
+  
+  .battle-vs-container {
+    gap: 32px;
+  }
+  
+  .vs-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .vs-text {
+    font-size: 20px;
+  }
+  
+  .outfit-image-wrapper {
+    height: 400px;
+  }
+  
+  .outfit-title {
+    font-size: 20px;
+  }
+  
+  .featured-battles {
+    padding: 32px 24px;
+    margin: 0 -12px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .battles-grid {
+    gap: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .battle-container {
+    padding: 0 8px;
+  }
+  
+  .battle-header {
+    padding: 24px 0;
+    margin: 0 -8px 24px -8px;
+  }
+  
+  .header-content {
+    padding: 0 16px;
+  }
+  
+  .battle-title {
+    font-size: 28px;
+  }
+  
+  .battle-description {
+    font-size: 16px;
+  }
+  
+  .battle-meta {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .battle-category,
+  .battle-timer,
+  .battle-participants {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .battle-vs-container {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .vs-divider {
+    transform: rotate(90deg);
+  }
+  
+  .vs-line {
+    top: -24px;
+    bottom: -24px;
+    left: 50%;
+    right: auto;
+    width: 4px;
+    height: 48px;
+    background: linear-gradient(180deg, transparent 0%, #ff6b9d 50%, transparent 100%);
+    transform: translateX(-50%);
+  }
+  
+  .outfit-image-wrapper {
+    height: 350px;
+  }
+  
+  .outfit-info {
+    padding: 20px;
+  }
+  
+  .outfit-title {
+    font-size: 18px;
+  }
+  
+  .battle-results {
+    padding: 24px;
+  }
+  
+  .results-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .featured-battles {
+    padding: 24px 16px;
+    margin: 0 -8px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .battles-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .battle-images {
+    height: 160px;
+  }
+  
+  .mini-vs {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .featured-battle-info {
+    padding: 16px;
+  }
+  
+  .featured-battle-title {
+    font-size: 16px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 479px) {
+  .battle-title {
+    font-size: 24px;
+  }
+  
+  .battle-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  
+  .outfit-image-wrapper {
+    height: 300px;
+  }
+  
+  .vote-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .vote-percentage {
+    font-size: 28px;
+  }
+  
+  .vs-circle {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .vs-text {
+    font-size: 16px;
+  }
+}

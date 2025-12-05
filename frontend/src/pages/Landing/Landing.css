@@ -1,0 +1,186 @@
+/* Landing.css - Clean & Classy */
+
+.landing-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  padding: 1rem;
+  font-family: Inter, -apple-system, system-ui, sans-serif;
+}
+
+.landing-stage {
+  width: 100%;
+  max-width: 1000px;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, 
+    rgba(168, 162, 248, 0.12) 0%,
+    rgba(178, 235, 242, 0.12) 20%,
+    rgba(147, 197, 253, 0.1) 40%,
+    rgba(253, 186, 116, 0.12) 60%,
+    rgba(255, 224, 178, 0.12) 80%,
+    rgba(255, 183, 178, 0.12) 100%);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.light {
+  position: absolute;
+  top: -50px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.3;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.light--one {
+  left: -70px;
+  background: linear-gradient(135deg, #a8a2f8, #7c3aed);
+}
+
+.light--two {
+  left: 180px;
+  background: linear-gradient(135deg, #b2ebf2, #06b6d4);
+  animation-delay: 0.6s;
+}
+
+.light--three {
+  right: 150px;
+  background: linear-gradient(135deg, #fde68a, #fbbf24);
+  animation-delay: 1.2s;
+}
+
+.light--four {
+  right: -70px;
+  background: linear-gradient(135deg, #ffb7b2, #f97316);
+  animation-delay: 1.8s;
+}
+
+.light--five {
+  left: 50%;
+  transform: translateX(-50%);
+  top: -80px;
+  background: linear-gradient(135deg, #ddd6fe, #c084fc);
+  animation-delay: 2.4s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.2); }
+}
+
+.dance-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  min-height: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.15));
+}
+
+.landing-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.landing-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 600;
+  color: #0b0b0b;
+  letter-spacing: -0.02em;
+}
+
+.landing-sub {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: clamp(0.9rem, 2.5vw, 1.125rem);
+}
+
+.landing-cta {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.875rem 1.5rem;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9375rem;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  color: white;
+}
+
+.btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.25);
+}
+
+.btn--ghost {
+  background: white;
+  color: #0b0b0b;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn--ghost:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .landing-stage { padding: 2rem 1.5rem; }
+  .dance-wrap { min-height: 350px; }
+  .logo-image { max-width: 250px; }
+}
+
+@media (max-width: 480px) {
+  .landing-stage { padding: 1.5rem 1rem; }
+  .dance-wrap { min-height: 280px; }
+  .logo-image { max-width: 200px; }
+  .landing-cta { 
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+  .btn { width: 100%; }
+}

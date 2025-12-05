@@ -1,0 +1,135 @@
+/* Overlay to make the edit page visible above everything */
+.edit-profile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9999; /* ensures it's on top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.edit-profile-container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Header */
+.edit-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.back-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.edit-header h3 {
+  margin: 0;
+  color: #222;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Avatar Section */
+.edit-avatar-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.edit-profile-pic {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.edit-camera-icon {
+  position: absolute;
+  bottom: 10px;
+  right: calc(50% - 60px);
+  background: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.edit-camera-icon:hover {
+  background: #0056b3;
+}
+
+/* Form Section */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.edit-form label {
+  font-weight: 600;
+  color: #333;
+}
+
+.edit-form input,
+.edit-form textarea {
+    background: pink;
+    color: black;
+  width: 100%;
+  padding: 0.6rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus {
+  border-color: #007bff;
+}
+
+/* Save Button */
+.save-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.save-btn:hover {
+  background: #0056b3;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

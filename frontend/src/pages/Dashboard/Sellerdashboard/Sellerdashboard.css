@@ -1,0 +1,366 @@
+/* Sellerdashboard.css - drop into same folder as Sellerdashboard.jsx */
+.dashboard-root {
+    height: 100vh;
+    width: 100%;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    background: #f5f7fa;
+    color: #0f1724;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.dashboard-root.dark .sidebar {
+    background: #0f1724;
+    color: #242121;
+}
+
+.dashboard-root.dark .main-content {
+    background: #071025;
+    color: #242323;
+}
+
+.sidebar {
+    width: 240px;
+    background: #fff;
+    box-shadow: 2px 0 10px rgba(2, 6, 23, 0.06);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* COLLAPSED SIDEBAR */
+.sidebar.collapsed {
+  width: 100px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .menu-item span {
+  display: none; /* hides text */
+}
+
+.sidebar.collapsed .logo {
+  display: none;
+}
+
+
+
+.sidebar.collapsed .menu-item {
+  justify-content: center;
+}
+
+.collapse-btn {
+  background: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 8px;
+  color: #000000; 
+}
+
+.collapse-btn:hover {
+  opacity: 0.8;
+  color: #163a8a;
+}
+
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0b1a3a;
+}
+
+.menu {
+    margin-top: 18px;
+    padding: 0;
+}
+
+.menu-item {
+    list-style: none;
+    padding: 12px 12px;
+    margin: 6px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #475569;
+    font-size: 15px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+    background: rgba(74, 108, 247, 0.06);
+    color: #163a8a;
+    transform: translateX(4px);
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 22px;
+    overflow-y: auto;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.top-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    
+}
+
+.icon-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #163a8a;
+}
+
+.icon-btn:hover {
+    background: rgba(2, 6, 23, 0.04);
+}
+
+.badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #2b6cb0;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 11px;
+}
+
+.badge.red {
+    background: #ef4444;
+}
+
+.theme-toggle {
+    background: transparent;
+    border: 1px solid #e6eefc;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #163a8a;
+}
+
+.top-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.card {
+    background: linear-gradient(135deg, #4a6cf7, #1937fe);
+    padding: 18px;
+    border-radius: 12px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 8px 24px rgba(12, 30, 80, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 40px rgba(12, 30, 80, 0.12);
+}
+
+.card-orders {
+    background: linear-gradient(135deg, #4ad8a0, #23b37a);
+}
+
+.card-income {
+    background: linear-gradient(135deg, #48c6ef, #6f86d6);
+}
+
+.card .card-icon {
+    font-size: 28px;
+}
+
+.card .card-body h3 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.card .card-body p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.grid-panel {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 18px;
+    align-items: start;
+}
+
+.chart-section {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(12, 30, 80, 0.04);
+}
+
+.panel-header h3 {
+    margin: 0;
+}
+
+.products-card,
+.summary-card,
+.mini-chart {
+    margin-top: 12px;
+    background: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(12, 30, 80, 0.04);
+}
+
+.accordion {
+    border-radius: 10px;
+    padding: 10px;
+    background: #f7f9fc;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.accordion:hover {
+    background: #eef3ff;
+    transform: translateY(-2px);
+}
+
+.accordion .accordion-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion.open {
+    background: linear-gradient(180deg, #ffffff 0%, #f4f7ff 100%);
+}
+
+.accordion .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.accordion.open .accordion-body {
+    max-height: 200px;
+    padding-top: 10px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.small {
+    font-size: 13px;
+}
+
+.btn.outline {
+    background: transparent;
+    border: 1px solid #c7d2fe;
+}
+
+.footer {
+    margin-top: 22px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+.hamburger-btn {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .grid-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .top-cards {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .sidebar {
+        position: fixed;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        width: 240px;
+        background: #fff;
+        z-index: 2000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        display: block; /* IMPORTANT */
+    }
+
+    /* Sidebar open state */
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    /* Overlay behind sidebar */
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1500;
+    }
+
+    /* Main content moves behind overlay */
+    .main-content {
+        margin-left: 0 !important;
+    }
+
+    /* Show hamburger button on mobile */
+    .hamburger-btn {
+        display: block;
+        font-size: 22px;
+        /* background-color: black; */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        color: #000000; 
+    }
+
+    /* Hide collapse button on mobile */
+    /* .collapse-btn {
+        display: none;
+    }  */
+}
+

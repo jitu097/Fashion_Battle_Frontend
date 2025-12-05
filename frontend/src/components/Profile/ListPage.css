@@ -1,0 +1,244 @@
+.list-page {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  z-index: 1003;
+  color: #000;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #eee;
+  background: #ffe4ec;
+}
+
+.list-header h2 {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.back-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #000;
+  transition: color 0.2s;
+}
+.back-icon:hover {
+  color: #e91e63;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #f1f1f1;
+  background: #fff;
+}
+
+.search-bar input {
+    background: white;
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  color: #000;
+}
+
+.user-list {
+  list-style: none;
+  padding: 10px 16px;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f3f3;
+  transition: background 0.2s;
+}
+
+.user-item:hover {
+  background: #fff0f5;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-pic {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e91e63;
+}
+
+.username {
+  font-weight: 500;
+  color: #000;
+}
+
+.user-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.msg-btn,
+.follow-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.msg-btn {
+  background: #fff;
+  color: #e91e63;
+  border: 1px solid #e91e63;
+}
+
+.msg-btn:hover {
+  background: #e91e63;
+  color: #fff;
+}
+
+/* Follow button states */
+.follow-btn.follow_back,
+.follow-btn.not_following {
+  background: #e91e63;
+  color: #fff;
+}
+
+.follow-btn.follow_back:hover,
+.follow-btn.not_following:hover {
+  background: #d81b60;
+}
+
+.follow-btn.following {
+  background: #fff;
+  color: #e91e63;
+  border: 1px solid #e91e63;
+}
+
+.follow-btn.following:hover {
+  background: #ffe4ec;
+}
+
+.follow-btn.unfollow {
+  background: #000;
+  color: #fff;
+}
+
+.follow-btn.unfollow:hover {
+  background: #e91e63;
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* === Post Grid Styling === */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.post-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: scale(1.03);
+}
+
+/* Post Image */
+.post-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay on hover */
+.post-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 192, 203, 0.4);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.post-card:hover .post-overlay {
+  opacity: 1;
+}
+
+/* Overlay icons (likes/comments) */
+.overlay-icons {
+  display: flex;
+  gap: 25px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.overlay-icons span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.like-icon.liked {
+  color: #ff3366;
+}
+
+/* Add subtle animation */
+.like-icon:hover,
+.comment-icon:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
